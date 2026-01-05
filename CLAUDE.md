@@ -75,7 +75,7 @@
 步驟：
 1. 讀取 `src/data/skills.md` 的技能資料
 2. 找到對應分類（01-Internet ~ 21-Real-Time-Data）
-3. 新增/修改技能項目的 name、level、time、link
+3. 新增/修改技能項目的 name、level、link
 4. 確認連結路徑格式：`tutorials/{編號}-{分類}/{filename}.html`
 ```
 
@@ -130,8 +130,8 @@
 
 **使用方式：**
 ```
-/add-tutorial <分類編號> "<技能名稱>" "<檔案路徑>" "<難度>" "<時數>"
-範例：/add-tutorial 08 "JWT Deep Dive" "tutorials/08-authentication/jwt-tutorial.html" "中級" "4h"
+/add-tutorial <分類編號> "<技能名稱>" "<檔案路徑>" "<難度>"
+範例：/add-tutorial 08 "JWT Deep Dive" "tutorials/08-authentication/jwt-tutorial.html" "中級"
 ```
 
 **執行流程：**

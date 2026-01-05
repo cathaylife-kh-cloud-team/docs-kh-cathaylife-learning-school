@@ -1,14 +1,14 @@
 ---
 description: 將新的教學頁面加入導航（檔案需先放入 tutorials/）
-argument-hint: <分類編號> <技能名稱> <檔案路徑> <難度> <時數>
+argument-hint: <分類編號> <技能名稱> <檔案路徑> <難度>
 allowed-tools: Read, Glob, Edit
 ---
 
 ## Inputs
 
 - Args: $ARGUMENTS
-- 格式：`<分類編號> "<技能名稱>" "<檔案路徑>" "<難度>" "<時數>"`
-- 範例：`01 "OSI 深入解析" "tutorials/01-internet/osi-deep-dive-tutorial.html" "中級" "3h"`
+- 格式：`<分類編號> "<技能名稱>" "<檔案路徑>" "<難度>"`
+- 範例：`01 "OSI 深入解析" "tutorials/01-internet/osi-deep-dive-tutorial.html" "中級"`
 
 ## Context
 
@@ -55,17 +55,17 @@ allowed-tools: Read, Glob, Edit
 
 ```markdown
 # {icon} {name} {#id}
-- {skill} | {level} | {time}
-- {skill} | {level} | {time} | {link}
+- {skill} | {level}
+- {skill} | {level} | {link}
 ```
 
 ## Procedure
 
-1. **解析參數**：從 $ARGUMENTS 解析出分類編號、技能名稱、檔案路徑、難度、時數
+1. **解析參數**：從 $ARGUMENTS 解析出分類編號、技能名稱、檔案路徑、難度
 2. **驗證檔案**：使用 Glob 確認 tutorials 檔案存在
 3. **驗證分類**：確認分類編號對應的 ID 存在於 skills.md
 4. **讀取資料**：讀取 `src/data/skills.md` 找到對應分類區塊
-5. **生成項目**：生成新的技能項目行：`- {技能名稱} | {難度} | {時數} | {檔案路徑}`
+5. **生成項目**：生成新的技能項目行：`- {技能名稱} | {難度} | {檔案路徑}`
 6. **預覽修改**：顯示即將新增的內容，等待 GO 確認
 7. **執行修改**：使用 Edit 工具在對應分類的最後一個技能後新增項目
 
@@ -79,13 +79,12 @@ allowed-tools: Read, Glob, Edit
 - 技能名稱：{技能}
 - 檔案路徑：{路徑}
 - 難度等級：{難度}
-- 學習時數：{時數}
 ```
 
 ### 預覽修改
 ```
 📝 即將新增到 [{分類}]：
-- {技能名稱} | {難度} | {時數} | {檔案路徑}
+- {技能名稱} | {難度} | {檔案路徑}
 
 ⏳ 輸入 GO 確認修改
 ```
@@ -103,8 +102,8 @@ allowed-tools: Read, Glob, Edit
 **參數格式錯誤**：
 
 ⚠️ 參數格式錯誤
-正確格式：/add-tutorial <分類編號> "<技能名稱>" "<檔案路徑>" "<難度>" "<時數>"
-範例：/add-tutorial 08 "JWT Deep Dive" "tutorials/08-authentication/jwt-tutorial.html" "中級" "4h"
+正確格式：/add-tutorial <分類編號> "<技能名稱>" "<檔案路徑>" "<難度>"
+範例：/add-tutorial 08 "JWT Deep Dive" "tutorials/08-authentication/jwt-tutorial.html" "中級"
 
 **檔案不存在**：
 

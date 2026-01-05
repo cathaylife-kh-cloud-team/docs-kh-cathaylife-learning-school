@@ -84,7 +84,6 @@ const renderNavTree = (filter = '') => {
                         }
                             <span class="skill-name">${highlightText(skill.name, filter)}</span>
                             <span class="skill-badge badge-${getLevelClass(skill.level)}">${skill.level}</span>
-                            <span class="skill-time">${skill.time}</span>
                         ${skill.link ? '</a>' : '</div>'}
                     `).join('')}
                 </div>

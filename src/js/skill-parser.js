@@ -10,8 +10,8 @@
  *
  * 支援格式：
  * # {icon} {name} {#id}
- * - {skill} | {level} | {time}
- * - {skill} | {level} | {time} | {link}
+ * - {skill} | {level}
+ * - {skill} | {level} | {link}
  */
 const parseSkillsMarkdown = (markdown) => {
     const categories = [];
@@ -37,14 +37,13 @@ const parseSkillsMarkdown = (markdown) => {
             return;
         }
 
-        // 解析技能項目: - Skill Name | 初級 | 1h | optional-link
-        const skillMatch = trimmedLine.match(/^-\s+(.+?)\s*\|\s*(.+?)\s*\|\s*(.+?)(?:\s*\|\s*(.+))?$/);
+        // 解析技能項目: - Skill Name | 初級 | optional-link
+        const skillMatch = trimmedLine.match(/^-\s+(.+?)\s*\|\s*(.+?)(?:\s*\|\s*(.+))?$/);
         if (skillMatch && currentCategory) {
-            const link = skillMatch[4]?.trim();
+            const link = skillMatch[3]?.trim();
             currentCategory.skills.push({
                 name: skillMatch[1].trim(),
                 level: skillMatch[2].trim(),
-                time: skillMatch[3].trim(),
                 link: link || null
             });
         }
