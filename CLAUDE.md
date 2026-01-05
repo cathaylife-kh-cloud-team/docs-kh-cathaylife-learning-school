@@ -60,22 +60,23 @@
 
 ```
 步驟：
-1. 使用者將 Claude Web 產生的 HTML 檔案放入 `tutorials/` 目錄
-2. 讀取 `index.html` 的 skillTree 資料結構
+1. 使用者將 Claude Web 產生的 HTML 檔案放入 `tutorials/{編號}-{分類}/` 目錄
+2. 讀取 `src/data/skills.md` 的技能資料
 3. 在對應分類中新增技能項目，設定正確的 link 路徑
 4. 確認連結可正常跳轉
 ```
 
 > ⚠️ 注意：不要修改 tutorials/ 內的檔案內容
+> 💡 可使用 `/add-tutorial` 命令快速新增
 
 ### 2. 更新首頁導航
 
 ```
 步驟：
-1. 讀取 `index.html` 的 skillTree 資料結構
+1. 讀取 `src/data/skills.md` 的技能資料
 2. 找到對應分類（01-Internet ~ 21-Real-Time-Data）
 3. 新增/修改技能項目的 name、level、time、link
-4. 確認連結路徑格式：`tutorials/{filename}.html`
+4. 確認連結路徑格式：`tutorials/{編號}-{分類}/{filename}.html`
 ```
 
 ### 3. 修改首頁樣式/功能
@@ -129,13 +130,13 @@
 
 **使用方式：**
 ```
-/add-tutorial <分類編號> <技能名稱> <檔案名稱> <難度> <時數>
-範例：/add-tutorial 08 "JWT Deep Dive" "jwt-deep-dive-tutorial.html" "中級" "4h"
+/add-tutorial <分類編號> "<技能名稱>" "<檔案路徑>" "<難度>" "<時數>"
+範例：/add-tutorial 08 "JWT Deep Dive" "tutorials/08-authentication/jwt-tutorial.html" "中級" "4h"
 ```
 
 **執行流程：**
-1. 確認 `tutorials/{檔案名稱}` 存在
-2. 更新 `index.html` 的 skillTree
+1. 確認教學檔案存在
+2. 更新 `src/data/skills.md`
 3. 輸出完成摘要
 
 ### /list-tutorials
@@ -149,9 +150,13 @@
 
 **輸出：**
 ```
-已連結的教學：
-- [01-Internet] OSI 模型 → tutorials/osi-model-tutorial.html
-- [17-Scaling] Rate Limiter → tutorials/rate-limiter-tutorial.html
+📚 已連結的教學頁面
+
+[01-Internet] Internet 基礎
+  • OSI 模型 → tutorials/01-internet/osi-model-tutorial.html
+
+[17-Scaling-Strategies] 擴展策略
+  • Rate Limiter / Throttling → tutorials/17-scaling-strategies/rate-limiter-tutorial.html
 ```
 
 ---
