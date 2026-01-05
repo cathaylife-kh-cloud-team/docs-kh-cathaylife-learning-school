@@ -68,6 +68,36 @@ body {
     opacity: 0.9;
 }
 
+/* ==================== View Toggle ==================== */
+.view-toggle {
+    display: flex;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 4px;
+    margin-top: 1rem;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.toggle-btn.active {
+    background: var(--bg-card);
+    color: var(--primary-color);
+}
+
 /* ==================== Search ==================== */
 .search-container {
     padding: 1rem 1.5rem;

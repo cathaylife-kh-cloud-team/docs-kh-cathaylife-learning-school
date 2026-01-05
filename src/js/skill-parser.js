@@ -65,3 +65,31 @@ const loadSkillsFromMarkdown = async (path = 'src/data/skills.md') => {
     const markdown = await response.text();
     return parseSkillsMarkdown(markdown);
 };
+
+/**
+ * 載入 Roadmap 布局資料
+ * @param {string} path - JSON 檔案路徑
+ * @returns {Promise<Object>} roadmap 配置
+ */
+const loadRoadmapLayout = async (path = 'src/data/roadmap-layout.json') => {
+    const response = await fetch(path);
+    if (!response.ok) {
+        throw new Error(`Failed to load roadmap: ${response.status}`);
+    }
+    return response.json();
+};
+
+/**
+ * 取得難度對應的 CSS class（供 roadmap.js 使用）
+ * 注意：main.js 有自己的 getLevelClass，此函式僅供 roadmap 頁面使用
+ * @param {string} level - 難度等級
+ * @returns {string} CSS class 名稱
+ */
+const getRoadmapLevelClass = (level) => {
+    const levelMap = {
+        '初級': 'beginner',
+        '中級': 'intermediate',
+        '進階': 'advanced'
+    };
+    return levelMap[level] || 'beginner';
+};
