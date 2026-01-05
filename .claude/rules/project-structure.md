@@ -5,19 +5,24 @@
 ```
 docs-kh-cathaylife-learning-school/
 ├── index.html                    # 首頁（樹狀導航）
+├── src/                          # 原始碼目錄
+│   ├── css/
+│   │   └── main.css              # 主要樣式檔
+│   └── js/
+│       └── main.js               # 主要腳本檔
+├── tutorials/                    # 教學頁面目錄（❌ 禁止修改內容）
+│   ├── 01-internet/              # Internet 基礎
+│   │   └── osi-model-tutorial.html
+│   ├── 17-scaling-strategies/    # 擴展策略
+│   │   └── rate-limiter-tutorial.html
+│   └── {編號}-{分類名}/           # 依分類編號建立子目錄
+│       └── {skill}-tutorial.html
 ├── CLAUDE.md                     # AI 開發指南
 ├── README.md                     # 專案說明
-├── .claude/
-│   └── rules/
-│       ├── project-structure.md  # 本檔案
-│       └── coding-standards.md   # 編碼規範
-└── tutorials/                    # 教學頁面目錄（❌ 禁止修改內容）
-    ├── 01-internet/              # Internet 基礎
-    │   └── osi-model-tutorial.html
-    ├── 17-scaling-strategies/    # 擴展策略
-    │   └── rate-limiter-tutorial.html
-    └── {編號}-{分類名}/           # 依分類編號建立子目錄
-        └── {skill}-tutorial.html
+└── .claude/
+    └── rules/
+        ├── project-structure.md  # 本檔案
+        └── coding-standards.md   # 編碼規範
 ```
 
 ---
@@ -27,6 +32,8 @@ docs-kh-cathaylife-learning-school/
 | 檔案類型 | 放置位置 | 說明 | 可修改 |
 |---------|---------|------|--------|
 | 首頁 | `/index.html` | 唯一入口，包含導航 | ✅ 可修改 |
+| 樣式檔 | `/src/css/main.css` | 首頁樣式 | ✅ 可修改 |
+| 腳本檔 | `/src/js/main.js` | 首頁腳本 | ✅ 可修改 |
 | 教學頁面 | `/tutorials/{編號}-{分類}/*.html` | 依分類放置 | ❌ **禁止修改** |
 | 規則文件 | `/.claude/rules/*.md` | AI 規範文件 | ✅ 可修改 |
 | 專案文件 | `/*.md` | README 等說明文件 | ✅ 可修改 |
@@ -39,12 +46,10 @@ docs-kh-cathaylife-learning-school/
 
 ```
 # ❌ 禁止
-├── src/                    # 不需要 src 目錄
 ├── dist/                   # 不需要建構輸出
 ├── node_modules/           # 不使用 npm
-├── assets/css/            # 樣式內嵌在 HTML
-├── assets/js/             # 腳本內嵌在 HTML
-└── components/            # 不使用組件化架構
+├── assets/                 # 不使用 assets 目錄
+└── components/             # 不使用組件化架構
 ```
 
 ---
@@ -112,6 +117,8 @@ docs-kh-cathaylife-learning-school/
 
 ```
 ✅ index.html
+✅ src/css/main.css
+✅ src/js/main.js
 ✅ tutorials/**/*.html
 ✅ CLAUDE.md
 ✅ README.md

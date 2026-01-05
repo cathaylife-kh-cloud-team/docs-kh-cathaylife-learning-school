@@ -49,8 +49,8 @@
 |------|---------|
 | 字體 | ✅ Google Fonts CDN |
 | 圖示 | ✅ 內嵌 SVG、Emoji |
-| 樣式 | ✅ 純 CSS、CSS Variables |
-| 互動 | ✅ 原生 JavaScript (ES6+) |
+| 樣式 | ✅ 純 CSS、CSS Variables（放置於 `/src/css/`） |
+| 腳本 | ✅ 原生 JavaScript ES6+（放置於 `/src/js/`） |
 
 ---
 
@@ -83,10 +83,12 @@
 ```
 步驟：
 1. 讀取 `.claude/rules/coding-standards.md`
-2. 僅修改 `index.html`
-3. 保持深色主題風格一致
-4. 確認響應式設計正常
-5. 測試搜尋和導航功能
+2. 樣式修改 → 編輯 `src/css/main.css`
+3. 腳本修改 → 編輯 `src/js/main.js`
+4. 結構修改 → 編輯 `index.html`
+5. 保持深色主題風格一致
+6. 確認響應式設計正常
+7. 測試搜尋和導航功能
 ```
 
 ---
@@ -99,13 +101,13 @@
 - [ ] 有 meta viewport 標籤？
 - [ ] title 有意義且包含關鍵字？
 
-### CSS 樣式
+### CSS 樣式（src/css/main.css）
 - [ ] 使用 CSS Variables 定義顏色？
 - [ ] 深色主題配色一致？
 - [ ] 響應式斷點 768px 處理？
 - [ ] 無冗餘的重複樣式？
 
-### JavaScript
+### JavaScript（src/js/main.js）
 - [ ] 使用 ES6+ 語法？
 - [ ] 事件監聽使用 addEventListener？
 - [ ] 無全域變數污染？

@@ -5,22 +5,18 @@
 ### 文件結構
 
 ```html
-<!-- ✅ 正確的文件開頭 -->
+<!-- ✅ 正確的文件開頭（首頁） -->
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{標題} | Backend Learning School</title>
-    <style>
-        /* CSS 內嵌於此 */
-    </style>
+    <link rel="stylesheet" href="src/css/main.css">
 </head>
 <body>
     <!-- 內容 -->
-    <script>
-        // JavaScript 內嵌於此
-    </script>
+    <script src="src/js/main.js"></script>
 </body>
 </html>
 ```
@@ -29,22 +25,20 @@
 
 | 項目 | 限制 |
 |------|------|
-| 外部 CSS 檔案 | ❌ 禁止（樣式內嵌） |
-| 外部 JS 檔案 | ❌ 禁止（腳本內嵌） |
-| 允許的 CDN | ✅ Google Fonts 唯一允許 |
+| 外部 CSS 檔案 | ✅ 允許（放置於 `/src/css/`） |
+| 外部 JS 檔案 | ✅ 允許（放置於 `/src/js/`） |
+| 允許的 CDN | ✅ Google Fonts |
 | ID 命名 | camelCase |
 | Class 命名 | kebab-case |
 
 ### 正反範例
 
 ```html
-<!-- ❌ 錯誤：外部樣式 -->
-<link rel="stylesheet" href="style.css">
+<!-- ❌ 錯誤：隨意的檔案路徑 -->
+<link rel="stylesheet" href="assets/style.css">
 
-<!-- ✅ 正確：內嵌樣式 -->
-<style>
-    .container { ... }
-</style>
+<!-- ✅ 正確：放置於 /src/css/ 目錄 -->
+<link rel="stylesheet" href="src/css/main.css">
 ```
 
 ```html
@@ -257,7 +251,7 @@ function findElement(id) { }
 - [ ] lang="zh-TW"？
 - [ ] 有 viewport meta？
 - [ ] title 有意義？
-- [ ] 無外部 CSS/JS 檔案？
+- [ ] CSS/JS 檔案放置於正確目錄？
 
 ### CSS
 - [ ] 使用 CSS Variables？
